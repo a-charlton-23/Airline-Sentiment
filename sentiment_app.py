@@ -81,7 +81,7 @@ st.sidebar.subheader("Breakdown airline by sentiment")
 choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'))
 if len(choice) > 0:
     st.subheader("Breakdown airline by sentiment")
-    breakdown_type = st.sidebar.selectbox('Visualization type', ['Pie chart', 'Bar plot', ], key='b')
+    breakdown_type = st.sidebar.selectbox('Visualization type', ['Pie chart', 'Bar plot', ], key='2')
     fig_3 = make_subplots(rows=1, cols=len(choice), subplot_titles=choice)
     if breakdown_type == 'Bar plot':
         for i in range(1):
@@ -118,7 +118,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.sidebar.header("Word Cloud")
 word_sentiment = st.sidebar.radio('Display word cloud for what sentiment?', ('positive', 'neutral', 'negative'))
 
-word_check = st.sidebar.checkbox("Hide", key='2')
+word_check = st.sidebar.checkbox("Hide", key='b')
 
 if not word_check:
     st.subheader('Word cloud for %s sentiment' % (word_sentiment))
