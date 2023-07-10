@@ -56,7 +56,7 @@ each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie char
 airline_sentiment_count = data.groupby('airline')['airline_sentiment'].count().sort_values(ascending=False)
 airline_sentiment_count = pd.DataFrame({'Airline':airline_sentiment_count.index, 'Tweets':airline_sentiment_count.values.flatten()})
 
-airline_check = st.sidebar.checkbox("Hide", key='a')
+airline_check = st.sidebar.checkbox("Hide", key='3')
 
 if not airline_check:
     if each_airline == 'Bar plot':
@@ -81,7 +81,7 @@ st.sidebar.subheader("Breakdown airline by sentiment")
 choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'))
 if len(choice) > 0:
     st.subheader("Breakdown airline by sentiment")
-    breakdown_type = st.sidebar.selectbox('Visualization type', ['Pie chart', 'Bar plot', ], key='2')
+    breakdown_type = st.sidebar.selectbox('Visualization type', ['Pie chart', 'Bar plot', ], key='4')
     fig_3 = make_subplots(rows=1, cols=len(choice), subplot_titles=choice)
     if breakdown_type == 'Bar plot':
         for i in range(1):
@@ -104,7 +104,7 @@ if len(choice) > 0:
         st.plotly_chart(fig_3)
         
 st.sidebar.subheader("Breakdown airline by sentiment")
-choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'), key=0)
+choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'), key='5')
 if len(choice) > 0:
     choice_data = data[data.airline.isin(choice)]
     fig_0 = px.histogram(
@@ -118,7 +118,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 st.sidebar.header("Word Cloud")
 word_sentiment = st.sidebar.radio('Display word cloud for what sentiment?', ('positive', 'neutral', 'negative'))
 
-word_check = st.sidebar.checkbox("Hide", key='b')
+word_check = st.sidebar.checkbox("Hide", key='6')
 
 if not word_check:
     st.subheader('Word cloud for %s sentiment' % (word_sentiment))
