@@ -78,7 +78,7 @@ def plot_sentiment(airline):
 
 
 st.sidebar.subheader("Breakdown airline by sentiment")
-choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'))
+choice = st.sidebar.multiselect('Pick airlines', ('US Airways','United','American','Southwest','Delta','Virgin America'), default=['US Airways','United','American','Southwest','Delta','Virgin America'])
 if len(choice) > 0:
     st.subheader("Breakdown airline by sentiment")
     breakdown_type = st.sidebar.selectbox('Visualization type', ['Pie chart', 'Bar plot', ], key='4')
