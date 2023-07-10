@@ -4,7 +4,7 @@ import numpy as np
 #import plotly.express as px
 #from plotly.subplots import make_subplots
 #import plotly.graph_objects as go
-from wordcloud import WordCloud, STOPWORDS
+#from wordcloud import WordCloud, STOPWORDS
 import matplotlib.pyplot as plt
 
 
