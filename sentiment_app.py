@@ -56,7 +56,7 @@ each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie char
 airline_sentiment_count = data.groupby('airline')['airline_sentiment'].count().sort_values(ascending=False)
 airline_sentiment_count = pd.DataFrame({'Airline':airline_sentiment_count.index, 'Tweets':airline_sentiment_count.values.flatten()})
 
-airline_check = st.sidebar.checkbox("Hide", key=1)
+airline_check = st.sidebar.checkbox("Hide", key = 'a')
 
 if not airline_check:
     if each_airline == 'Bar plot':
