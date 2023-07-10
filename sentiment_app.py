@@ -125,7 +125,7 @@ if not word_check:
     df = data[data['airline_sentiment']==word_sentiment]
     words = ' '.join(df['text'])
     processed_words = ' '.join([word for word in words.split() if 'http' not in word and not word.startswith('@') and word != 'RT'])
-    wordcloud = WordCloud(stopwords=STOPWORDS, background_color='white', width=800, height=640).generate(processed_words)
+    wordcloud = WordCloud(stopwords=STOPWORDS, background_color='black', width=800, height=640).generate(processed_words)
     plt.imshow(wordcloud)
     plt.xticks([])
     plt.yticks([])
