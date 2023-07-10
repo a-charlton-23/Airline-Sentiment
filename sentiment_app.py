@@ -54,7 +54,7 @@ if not st.sidebar.checkbox("Hide", True, key='1'):
     if st.sidebar.checkbox("Show raw data", False):
         st.write(modified_data)
 '''
-'''
+
 st.sidebar.subheader("Total number of tweets for each airline")
 each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
 airline_sentiment_count = data.groupby('airline')['airline_sentiment'].count().sort_values(ascending=False)
@@ -126,4 +126,4 @@ if not st.sidebar.checkbox("Close", True, key='3'):
     plt.xticks([])
     plt.yticks([])
     st.pyplot()
-'''
+
