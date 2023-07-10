@@ -35,7 +35,7 @@ st.sidebar.markdown("### Number of tweets by sentiment")
 select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='1')
 sentiment_count = data['airline_sentiment'].value_counts()
 sentiment_count = pd.DataFrame({'Sentiment':sentiment_count.index, 'Tweets':sentiment_count.values})
-if not st.sidebar.checkbox("Hide", True):
+if not st.sidebar.checkbox("Hide", False):
     st.markdown("### Number of tweets by sentiment")
     if select == 'Bar plot':
         fig = px.bar(sentiment_count, x='Sentiment', y='Tweets', color='Tweets', height=500)
@@ -47,14 +47,14 @@ if not st.sidebar.checkbox("Hide", True):
 st.sidebar.subheader("When and where are users tweeting from?")
 hour = st.sidebar.slider("Hour to look at", 0, 23)
 modified_data = data[data['tweet_created'].dt.hour == hour]
-if not st.sidebar.checkbox("Close", True, key='1'):
+if not st.sidebar.checkbox("Hide", False, key='1'):
     st.markdown("### Tweet locations based on time of day")
     st.markdown("%i tweets between %i:00 and %i:00" % (len(modified_data), hour, (hour + 1) % 24))
     st.map(modified_data)
     if st.sidebar.checkbox("Show raw data", False):
         st.write(modified_data)
 
-
+'''
 st.sidebar.subheader("Total number of tweets for each airline")
 each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
 airline_sentiment_count = data.groupby('airline')['airline_sentiment'].count().sort_values(ascending=False)
