@@ -37,13 +37,13 @@ select = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], k
 sentiment_count = data['airline_sentiment'].value_counts()
 sentiment_count = pd.DataFrame({'Sentiment':sentiment_count.index, 'Tweets':sentiment_count.values})
 #if not st.sidebar.checkbox("Hide", True, key='1'):
-    st.markdown("### Number of tweets by sentiment")
-    if select == 'Bar plot':
-        fig = px.bar(sentiment_count, x='Sentiment', y='Tweets', color='Tweets', height=500)
-        st.plotly_chart(fig)
-    else:
-        fig = px.pie(sentiment_count, values='Tweets', names='Sentiment')
-        st.plotly_chart(fig)
+st.markdown("### Number of tweets by sentiment")
+if select == 'Bar plot':
+    fig = px.bar(sentiment_count, x='Sentiment', y='Tweets', color='Tweets', height=500)
+    st.plotly_chart(fig)
+else:
+    fig = px.pie(sentiment_count, values='Tweets', names='Sentiment')
+    st.plotly_chart(fig)
 
 
 
@@ -52,14 +52,14 @@ each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie char
 airline_sentiment_count = data.groupby('airline')['airline_sentiment'].count().sort_values(ascending=False)
 airline_sentiment_count = pd.DataFrame({'Airline':airline_sentiment_count.index, 'Tweets':airline_sentiment_count.values.flatten()})
 #if not st.sidebar.checkbox("Close", True, key='2'):
-    if each_airline == 'Bar plot':
-        st.subheader("Total number of tweets for each airline")
-        fig_1 = px.bar(airline_sentiment_count, x='Airline', y='Tweets', color='Tweets', height=500)
-        st.plotly_chart(fig_1)
-    if each_airline == 'Pie chart':
-        st.subheader("Total number of tweets for each airline")
-        fig_2 = px.pie(airline_sentiment_count, values='Tweets', names='Airline')
-        st.plotly_chart(fig_2)
+if each_airline == 'Bar plot':
+    st.subheader("Total number of tweets for each airline")
+    fig_1 = px.bar(airline_sentiment_count, x='Airline', y='Tweets', color='Tweets', height=500)
+    st.plotly_chart(fig_1)
+if each_airline == 'Pie chart':
+    st.subheader("Total number of tweets for each airline")
+    fig_2 = px.pie(airline_sentiment_count, values='Tweets', names='Airline')
+    st.plotly_chart(fig_2)
 
 
 @st.cache(persist=True)
