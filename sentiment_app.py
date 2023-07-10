@@ -43,7 +43,7 @@ if not st.sidebar.checkbox("Hide", False):
     else:
         fig = px.pie(sentiment_count, values='Tweets', names='Sentiment')
         st.plotly_chart(fig)
-
+'''
 st.sidebar.subheader("When and where are users tweeting from?")
 hour = st.sidebar.slider("Hour to look at", 0, 23)
 modified_data = data[data['tweet_created'].dt.hour == hour]
@@ -53,7 +53,7 @@ if not st.sidebar.checkbox("Hide", True, key='1'):
     st.map(modified_data)
     if st.sidebar.checkbox("Show raw data", False):
         st.write(modified_data)
-
+'''
 '''
 st.sidebar.subheader("Total number of tweets for each airline")
 each_airline = st.sidebar.selectbox('Visualization type', ['Bar plot', 'Pie chart'], key='2')
