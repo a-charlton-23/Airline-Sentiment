@@ -126,3 +126,4 @@ if not st.sidebar.checkbox("Close", True, key='3'):
     plt.xticks([])
     plt.yticks([])
     st.pyplot()
+'''
