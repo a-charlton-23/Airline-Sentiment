@@ -5,7 +5,7 @@ import numpy as np
 #from plotly.subplots import make_subplots
 #import plotly.graph_objects as go
 #from wordcloud import WordCloud, STOPWORDS
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 DATA_URL = (
